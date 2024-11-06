@@ -1,0 +1,11 @@
+mysql -h184.127.14.237 -uroot -pPassw0rd5 zabbix_t2 < /usr/share/zabbix-sql-scripts/mysql/option-patches/history_upgrade_prepare.sql
+
+
+# mysql -uroot -p
+password
+mysql> create database zabbix character set utf8mb4 collate utf8mb4_bin;
+       create database zabbix_t2 character set utf8mb4 collate utf8mb4_bin;
+mysql> create user zabbix@localhost identified by 'password';
+mysql> grant all privileges on zabbix.* to zabbix@localhost;
+mysql> set global log_bin_trust_function_creators = 1;
+mysql> quit;
